@@ -9,14 +9,10 @@
 
   <ItemGroup>
     <None Remove="OIG.zQs2r.-removebg-preview.png" />
-    <None Remove="OIG.zQs2r..gif" />
-    <None Remove="OIG.zQs2r..png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="OIG.zQs2r.-removebg-preview.png" />
-    <Resource Include="OIG.zQs2r..gif" />
-    <Resource Include="OIG.zQs2r..png" />
+    <Resource Include="images\logo.png" />
   </ItemGroup>
 
 </Project>

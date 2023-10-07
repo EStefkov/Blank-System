@@ -34,5 +34,23 @@ namespace BLANKMenu
         {
 
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+
+
+        }
+        private void btnMinimize_Click(Object sender,RoutedEventArgs e) {
+            WindowState = WindowState.Minimized;
+        }
+        
+        private void btnLogIn_Click(Object sender, RoutedEventArgs e) { 
+        }
+        private void btnClose_Click(Object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
