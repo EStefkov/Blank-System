@@ -1,0 +1,50 @@
+﻿<Window x:Class="BLANKMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BLANKMenu"
+        mc:Ignorable="d"
+        Title="Blank System" Height="1080" Width="1080">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF585858" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="10,-30,-10,30">
+        <PasswordBox Margin="363,769,317,0" Height="18" VerticalAlignment="Top"/>
+        <TextBlock Margin="280,771,463,0" TextWrapping="Wrap" Text="Password" RenderTransformOrigin="1.209,0.629" FontFamily="Arial" FontWeight="Bold" Height="14" VerticalAlignment="Top"/>
+        <TextBlock Margin="279,742,463,0" TextWrapping="Wrap" Text="Username" RenderTransformOrigin="1.209,0.629" FontFamily="Arial" FontWeight="Bold" Height="14" VerticalAlignment="Top"/>
+
+        <Button Content="Submit" Margin="450,799,450,0" Height="20" VerticalAlignment="Top"/>
+        <TextBox Margin="363,742,317,0" TextWrapping="Wrap" Text="" Height="18" VerticalAlignment="Top"/>
+        <Image Height="490" Margin="39,93,18,0" VerticalAlignment="Top" Source="/OIG.zQs2r.-removebg-preview.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.119"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="BLANK System" Margin="403,532,357,472" FontFamily="Arial Black" FontSize="32" Background="{x:Null}">
+            <Label.Foreground>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFB006E" Offset="0.0013"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FF350062" Offset="0.08"/>
+                    <GradientStop Color="#FF3F0CDD" Offset="0.23"/>
+                    <GradientStop Color="#FF00F8FE" Offset="0.813"/>
+                    <GradientStop Color="#FF000053" Offset="0.52"/>
+                    <GradientStop Color="#FFEF0762"/>
+                    <GradientStop Color="#FF00EFF7" Offset="0.67"/>
+                </RadialGradientBrush>
+            </Label.Foreground>
+        </Label>
+
+
+    </Grid>
+</Window>
