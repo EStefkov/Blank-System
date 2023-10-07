@@ -1,10 +1,10 @@
 Restaurant and Bar Management Software
-Table of Contents
+Table of Contents 
 Introduction
 
-1.1 Purpose
-1.2 Scope
-1.3 Document Conventions
+1.1 Purpose /n
+1.2 Scope /n 
+1.3 Document Conventions /n
 1.4 Intended Audience
 1.5 References
 System Overview
