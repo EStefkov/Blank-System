@@ -1,0 +1,235 @@
+﻿<Window x:Class="BLANKMenu.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BLANKMenu.Views"
+        xmlns:viewModel="clr-namespace:BLANKMenu.ViewModels"
+        xmlns:customcontrols="clr-namespace:BLANKMenu.CustomControls"
+        mc:Ignorable="d"
+        Title="Blank System" Height="550" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+
+    <Window.DataContext>
+        <viewModel:LoginViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+    
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
+    
+    <Border CornerRadius="15"
+                Opacity="0.95"
+                BorderThickness="5">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.1,0.7" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#FF53195D" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="LOG IN" 
+                               Foreground="DarkGray"
+                               FontSize="15"
+                               FontFamily="Montserrat"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+
+                    <Button x:Name="btnMinimize"
+                            BorderThickness="0"
+                            Content="-" 
+                            Foreground="White"
+                            FontSize="16"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="btnClose"
+                            BorderThickness="0"
+                            Content="X" 
+                            Foreground="White"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#C62DAE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </Grid>
+
+            <StackPanel Width="250" 
+                        Grid.Row="2"
+                        Orientation="Vertical"
+                        Margin="0,0,0,0">
+                <Image Source="/images/logo.png" Width="250" Height="238"></Image>
+                <TextBlock Text="Blank System" 
+                    Foreground="White"
+                    FontSize="25"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                <TextBlock Text="Always with you" 
+                  Foreground="LightGray"
+                   FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    Margin="0,5,0,0"/>
+                <TextBlock Text="Username" 
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    TextWrapping="Wrap"
+
+                     Margin="0,5,0,0"/>
+                <!-- {Binding Username, UpdateSourceTrigger=PropertyChanged}-->
+                <TextBox x:Name="txtUser" 
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="13" 
+                         FontWeight="Medium"
+                         Background="Transparent"
+                         FontFamily="Motserrat"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,1"
+                         Height="28"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,0"
+                         Padding="0,0,0,0">
+                    
+                </TextBox>
+                <TextBlock Text="Password"
+                                Foreground="DarkGray"
+                                FontSize="12"
+                                FontWeight="Medium"
+                                FontFamily="Montserrat"
+                                TextWrapping="Wrap"
+                                Margin="0,15,0,0"/>
+                
+                <customcontrols:BindablePasswordBox Password ="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                    Height="28"
+                                                    Margin="0,5,0,0">
+
+                </customcontrols:BindablePasswordBox>
+
+                <TextBlock Text="{Binding ErrorMessage}"
+                        Foreground="#D7596D"
+                        FontSize="12"
+                        FontWeight="Medium"
+                         FontFamily="Montserrat" 
+                        Margin="0,0,0,0"
+                        TextWrapping="Wrap" />
+
+                <Button x:Name="btnLogin"
+                        Command="{Binding LoginCommand}"
+                        BorderThickness="0"
+                        Content="LOG IN" 
+                        Foreground="White"
+                        FontSize="12"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                       
+                        Margin="0,30,0,0" 
+                        >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#462AD8" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="40" 
+                    CornerRadius="20"
+                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+            </StackPanel>
+                
+            </Grid>
+     
+    </Border>
+</Window>
