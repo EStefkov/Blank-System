@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "D7aJHh49QB8OOyBFRdP37D06PV2LphjAk4yDsfQxDgG4tKg9K+lcVO1iL7d6shAodUkC+qnh1CoIDcKCn8avjg==",
+  "dgSpecHash": "4HVovxVtChVoBH7YSZHCMALXI5n2QaakpSNmYgAvfciSlUqNCqkrzxGcFO1AxHnbOZond2RWeJIE6ElB1QttoA==",
   "success": true,
-  "projectFilePath": "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
+  "projectFilePath": "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\djd3e\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
     "C:\\Users\\djd3e\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\djd3e\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\djd3e\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

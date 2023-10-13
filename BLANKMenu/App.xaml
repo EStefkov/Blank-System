@@ -5,6 +5,14 @@
             Startup="ApplicationStart">
     <!-- StartupUri="Views/LoginWindow.xaml"-->
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/UIColors.xaml"/>
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+
     </Application.Resources>
 </Application>

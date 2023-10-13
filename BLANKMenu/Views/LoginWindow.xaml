@@ -32,15 +32,15 @@
                 BorderThickness="5">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#462AD8" Offset="0"/>
-                    <GradientStop Color="#DA34AE" Offset="0.75"/>
-                    <GradientStop Color="#8A16C1" Offset="1"/>
+                    <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.75"/>
+                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.1,0.7" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0"/>
-                    <GradientStop Color="#FF53195D" Offset="0.75"/>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.75"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -59,7 +59,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="LOG IN" 
-                               Foreground="DarkGray"
+                               Foreground="{StaticResource plainTextColor1}"
                                FontSize="15"
                                FontFamily="Montserrat"
                                Grid.Column="0"
@@ -134,7 +134,7 @@
                         Margin="0,0,0,0">
                 <Image Source="/images/logo.png" Width="250" Height="238"></Image>
                 <TextBlock Text="Blank System" 
-                    Foreground="White"
+                    Foreground="{StaticResource titleColor1}"
                     FontSize="25"
                     FontWeight="Medium"
                     FontFamily="Montserrat"

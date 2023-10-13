@@ -17,7 +17,9 @@ namespace BLANKMenu.Repositories
         {
             //Server=localhost\MSSQLSERVER01;Database=master;Trusted_Connection=True;
             //  
-            _connectionString = "Server=localhost\\MSSQLSERVER01;Database=BlankSystem; Integrated Security=true";
+           // _connectionString = "Server=localhost\\MSSQLSERVER01;Database=BlankSystem; Integrated Security=true"; // pc edition DB
+           _connectionString = "Server=(local); Database=BlankSystem; Integrated Security=true"; // laptopa
+            
         }
 
 

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\BLANKMenu.csproj": {}
+    "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\BLANKMenu.csproj": {}
   },
   "projects": {
-    "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\BLANKMenu.csproj": {
+    "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\BLANKMenu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
+        "projectUniqueName": "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
         "projectName": "BLANKMenu",
-        "projectPath": "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
+        "projectPath": "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
         "packagesPath": "C:\\Users\\djd3e\\.nuget\\packages\\",
-        "outputPath": "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\obj\\",
+        "outputPath": "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\djd3e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +40,10 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "FontAwesome.Sharp": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"

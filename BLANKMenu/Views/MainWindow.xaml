@@ -3,22 +3,74 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:local="clr-namespace:BLANKMenu.Views"
         xmlns:viewModel="clr-namespace:BLANKMenu.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStyle="SingleBorderWindow"
-        WindowState="Maximized">
+        WindowStyle="None"
+        WindowState="Maximized"
+        Background="Transparent"
+        AllowsTransparency="True">
 
-
+<!--
     <Window.DataContext>
         <viewModel:MainViewModel/>
 
     </Window.DataContext>
-    <Grid>
-        <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
-                   FontSize="30"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-    </Grid>
+    -->
+
+    <Border CornerRadius="50"
+            Opacity="0.98"
+            BorderThickness="15">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.75"/>
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.75"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+        <!-- Main Section-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90" />
+                <!-- Първи ред с автоматична височина -->
+                <RowDefinition Height="*" />
+                <RowDefinition Height="90"/>
+                
+
+            </Grid.RowDefinitions>
+
+            <Image Source="/images/logo.png" Grid.Row="0" Height="100" HorizontalAlignment="Left"/>
+
+            <RadioButton Style="{StaticResource menuButton}" Grid.Row="1" Tag="{StaticResource color1}" >
+                <StackPanel Orientation="Vertical">
+                    <fa:IconImage Icon="PlusCircle" Style="{StaticResource menuButtonIcon}" />
+                    <TextBlock Text="New Table" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+            </RadioButton>
+
+            <RadioButton Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0"  >
+                <StackPanel Orientation="Vertical">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource menuButtonIcon}" />
+                    <TextBlock Text="EXIT" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center"  Margin="0,5,0,0"/>
+                </StackPanel>
+            </RadioButton>
+
+
+
+
+        </Grid>
+
+
+    </Border>
+
 </Window>

@@ -15,7 +15,6 @@ go
 insert into [User] values (NEWID(), 'admin', 'admin','RJ Code','Advance', 'rjcode@gmail.com')
 insert into [User] values (NEWID(), 'jazz', 'qwerty','Jazzlyn Yarely','Sebhant', 'jazz.m@gmail.com')
 insert into [User] values (NEWID(), 'keni', 'asdfg','Kenisha Aira','Montero', 'keni.m@gmail.com')
-insert into [User] values (NEWID(), 'STEFKOV\djd3e', 'admin','Kenisha Aira','Montero', 'keni.m@gmail.com')
 go
 
 select *from [User]
