@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLANKMenu.ViewModels;
+using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -38,6 +40,18 @@ namespace BLANKMenu.CustomControls
         {
             Password = txtPassword.SecurePassword;
         }
+
+        private void txtPasswordd(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (DataContext is LoginViewModel viewModel && viewModel.LoginCommand.CanExecute(null))
+                {
+                    viewModel.LoginCommand.Execute(null);
+                }
+            }
+        }
+
 
     }
 }

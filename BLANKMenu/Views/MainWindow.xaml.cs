@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLANKMenu.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,17 @@ namespace BLANKMenu.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+           LoginViewModel s = new LoginViewModel();
+            // Затворете текущия прозорец (MainWindow)
+            this.Close();
+
+            loginWindow.Show();
         }
     }
 }

@@ -13,13 +13,6 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-<!--
-    <Window.DataContext>
-        <viewModel:MainViewModel/>
-
-    </Window.DataContext>
-    -->
-
     <Border CornerRadius="50"
             Opacity="0.98"
             BorderThickness="15">
@@ -58,13 +51,34 @@
                 </StackPanel>
             </RadioButton>
 
-            <RadioButton Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0"  >
+            <RadioButton Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0" Click="RadioButton_Click" 
+                         Command="{Binding LogoutCommand}">
                 <StackPanel Orientation="Vertical">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource menuButtonIcon}" />
                     <TextBlock Text="EXIT" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center"  Margin="0,5,0,0"/>
                 </StackPanel>
             </RadioButton>
 
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Caption -->
+                <StackPanel Grid.Column="0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Margin="100,0,0,0">
+                    <TextBlock Text="Your Bar Name "
+                               Foreground="{StaticResource plainTextColor2}"
+                               FontSize="16"
+                               FontFamily="Montserrat"
+                               VerticalAlignment="Center"/>
+
+
+                </StackPanel>
+            </Grid>
 
 
 
