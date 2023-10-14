@@ -46,9 +46,8 @@ namespace BLANKMenu
             WindowState = WindowState.Minimized;
         }
         
-        private void btnLogIn_Click(Object sender, RoutedEventArgs e) { 
-           
-              
+        private void btnLogIn_Click(Object sender, RoutedEventArgs e) {
+          
         }
         private void btnClose_Click(Object sender, RoutedEventArgs e)
         {

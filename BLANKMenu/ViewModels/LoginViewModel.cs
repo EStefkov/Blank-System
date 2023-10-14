@@ -22,7 +22,7 @@ namespace BLANKMenu.ViewModels
         private bool _isViewVisible = true;
          
         private IUserRepository userRepository;
-        private bool _isLoggedIn = false;
+        private bool _isLoggedIn;
 
         public bool IsLoggedIn
         {
@@ -146,7 +146,6 @@ namespace BLANKMenu.ViewModels
             IsLoggedIn = false;
             IsViewVisible = true;
 
-            // Може да се извика команда за нулиране на данните или да се извършат други действия, специфични за вашето приложение.
         }
 
         private bool ExecuteRecoverPassCommand(string username, string email)

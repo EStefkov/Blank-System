@@ -42,7 +42,7 @@ namespace BLANKMenu.ViewModels
             if (user != null)
             {
                 CurrentUserAccount.Uername = user.Username;
-                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName} ;";
+                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName} ";
                 CurrentUserAccount.ProfilePicture = null;
             }
             else 
