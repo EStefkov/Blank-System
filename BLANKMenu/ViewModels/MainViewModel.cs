@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using BLANKMenu.Models;
 using BLANKMenu.Repositories;
 
@@ -16,6 +18,7 @@ namespace BLANKMenu.ViewModels
         //fiields 
         private UserAccountModel _currentUserAccount;
         private IUserRepository userRepository;
+        public ICommand NewTableButton { get; }
 
         public UserAccountModel CurrentUserAccount
         {
@@ -33,9 +36,18 @@ namespace BLANKMenu.ViewModels
         {
             userRepository=new UserRepository();
             CurrentUserAccount = new UserAccountModel();
+            NewTableButton = new ViewModelCommands(NewTableButtonn);
             LoadCurrentUserData();
         }
 
+        private Random random = new Random();
+        private RadioButton radioButton = new RadioButton();
+        private FrameworkElement parent = new FrameworkElement();
+        private void NewTableButtonn(object sender)
+        {
+            throw new NotImplementedException();
+
+        }
         private void LoadCurrentUserData()
         {
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);

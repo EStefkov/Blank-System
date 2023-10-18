@@ -49,14 +49,14 @@
 
             <Image Source="/images/logo.png" Grid.Row="0" Height="100" HorizontalAlignment="Left"/>
 
-            <RadioButton Style="{StaticResource menuButton}" Grid.Row="1" Tag="{StaticResource color1}">
+            <RadioButton  Style="{StaticResource menuButton}" Grid.Row="1" Tag="{StaticResource color1}"  Command="{Binding NewTableButton}" >
                 <StackPanel Orientation="Vertical">
                     <fa:IconImage Icon="PlusCircle" Style="{StaticResource menuButtonIcon}" />
                     <TextBlock Text="New Table" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                 </StackPanel>
             </RadioButton>
 
-            <RadioButton Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0" Click="RadioButton_Click" 
+            <RadioButton x:Name="newTableButton" Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0" Click="RadioButton_Click" 
                          Command="{Binding LogoutCommand}">
                 <StackPanel Orientation="Vertical">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource menuButtonIcon}" />
