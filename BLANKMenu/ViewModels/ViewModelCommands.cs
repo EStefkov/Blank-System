@@ -9,9 +9,10 @@ namespace BLANKMenu.ViewModels
 {
    public class ViewModelCommands : ICommand
     {
-        // Fields
+       
 
         private readonly Action<object> _executeAction;
+      
         private readonly Predicate<object> _canExecuteAction;
 
         public ViewModelCommands(Action<object> executeAction)
@@ -20,7 +21,7 @@ namespace BLANKMenu.ViewModels
             _canExecuteAction = null;
         }
 
-        //Constructors
+        // // Конструктор с действие и проверка за изпълнение
         public ViewModelCommands(Action<object> executeAction, Predicate<object> canExecuteAction)
         {
             _executeAction = executeAction;
@@ -28,18 +29,29 @@ namespace BLANKMenu.ViewModels
         }
 
 
-        //Events
+
+        /*
+         Събитието "CanExecuteChanged" се свързва с автоматичния механизъм "CommandManager.RequerySuggested".
+         Това събитие се извиква, когато трябва да се провери изпълнимостта на команди, свързани с потребителския интерфейс.
+        */
 
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested  += value; }
             remove { CommandManager.RequerySuggested  -= value; }
         }
-        //Methods
+        /*
+            Методът "CanExecute" проверява изпълнимостта на командата, използвайки предварително зададена проверка или връща "true", ако няма проверка.
+        */
+
         public bool CanExecute(object parameter) 
         {
             return _canExecuteAction == null ? true : _canExecuteAction(parameter);
         }
+
+        /*
+          Методът "Execute" изпълнява командата, предавайки параметъра на съответното действие (Action).
+        */
 
         public void Execute(object parameter) 
         {

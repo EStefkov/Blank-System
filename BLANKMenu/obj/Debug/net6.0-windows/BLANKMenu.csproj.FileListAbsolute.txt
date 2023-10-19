@@ -88,3 +88,7 @@ C:\Users\djd3e\Documents\GitHub\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\
 C:\Users\djd3e\Documents\GitHub\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\App.baml
 C:\Users\djd3e\Documents\GitHub\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Styles\ButtonStyles.baml
 C:\Users\djd3e\Documents\GitHub\Blank-System\BLANKMenu\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
+D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
+D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Styles\ButtonStyles.baml
+D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Styles\UIColors.baml
+D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\App.baml

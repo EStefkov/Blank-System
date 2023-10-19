@@ -16,9 +16,18 @@ namespace BLANKMenu.ViewModels
    public class MainViewModel: ViewModelsBase
     {
         //fiields 
+        /*
+        Променливите "_currentUserAccount" и "userRepository" съхраняват информация за потребителския акаунт и репозитория за потребители.
+        */
+
         private UserAccountModel _currentUserAccount;
         private IUserRepository userRepository;
         public ICommand NewTableButton { get; }
+
+        /*
+        Свойството "CurrentUserAccount" представлява текущия потребителски акаунт. При задаване на стойност на това свойство, то го обновява
+        и извиква метода "OnPropertyChanged", за да уведоми изгледите за промените.
+        */
 
         public UserAccountModel CurrentUserAccount
         {
@@ -32,6 +41,12 @@ namespace BLANKMenu.ViewModels
                 OnPropertyChanged(nameof(CurrentUserAccount));
             }
         }
+
+        /*
+        Конструкторът "MainViewModel" се използва за инициализация на ViewModel. Той създава екземпляр на "userRepository" от клас "UserRepository",
+        инициализира "CurrentUserAccount" с празен потребителски акаунт.
+        След това зарежда текущите данни на потребителя чрез "LoadCurrentUserData".
+        */
         public MainViewModel() 
         {
             userRepository=new UserRepository();
@@ -40,14 +55,20 @@ namespace BLANKMenu.ViewModels
             LoadCurrentUserData();
         }
 
-        private Random random = new Random();
-        private RadioButton radioButton = new RadioButton();
-        private FrameworkElement parent = new FrameworkElement();
+   
         private void NewTableButtonn(object sender)
         {
             throw new NotImplementedException();
 
         }
+
+        /*
+        Методът "LoadCurrentUserData" извлича и зарежда текущите данни на потребителя.
+        Той започва с извличане на данни за потребителя от "userRepository" чрез името на текущия потребител,
+        след което актуализира "CurrentUserAccount" с информацията за потребителя, ако такъв съществува.
+        В противен случай се задава подходящо съобщение за грешка.
+        */
+
         private void LoadCurrentUserData()
         {
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);

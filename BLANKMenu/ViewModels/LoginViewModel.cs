@@ -20,9 +20,19 @@ namespace BLANKMenu.ViewModels
         private SecureString _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
-         
+
+        /*
+        Променливата "userRepository" представлява интерфейс за работа с репозиторий на потребители.
+        Този интерфейс позволява извикване на операции за достъп и манипулиране на данни, свързани с потребителски акаунти.
+        */
         private IUserRepository userRepository;
         private bool _isLoggedIn;
+
+
+        /*
+        Свойството "IsLoggedIn" указва дали потребителят е в момента влезнал в системата или не.
+        При смяна на стойността му, то извиква метода "OnPropertyChanged" за уведомление на изгледите за промяна.
+        */
 
         public bool IsLoggedIn
         {
@@ -86,11 +96,24 @@ namespace BLANKMenu.ViewModels
             }
         }
         //Commands
+        /*
+        Свойствата "LoginCommand," "RecoverPasswordCommand," "ShowPasswordCommand," и "RememberPasswordCommand" представляват команди, 
+        които се използват в ViewModel за управление на различни действия в потребителския интерфейс, като влизане в системата, 
+        възстановяване на парола, показване на паролата и запомняне на паролата.
+        */
+
         public ICommand LoginCommand { get; }
         public ICommand RecoverPasswordCommand { get; }
         public ICommand ShowPasswordCommand { get; }
         public ICommand RememberPasswordCommand { get; }
-        public ICommand LogoutCommand { get; }
+        public ICommand LogoutCommand { get; } //TOOO DOOOO да се премести в MainView
+        //Конструктор 
+        /*
+        Конструкторът "LoginViewModel" се използва за инициализация на ViewModel за влизане в системата.
+        Той създава обект на "userRepository" от клас "UserRepository" и инициализира няколко команди:
+        - "LoginCommand" за изпълнение на вход в системата, с проверка на изпълнимост чрез "CanExecuteLogInCommand".
+        - "RecoverPasswordCommand" за изпълнение на възстановяване на парола със зададени параметри.
+        */
 
         public LoginViewModel()
 
@@ -98,9 +121,16 @@ namespace BLANKMenu.ViewModels
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommands(ExecuteLoginCommand, CanExecuteLogInCommand);
             RecoverPasswordCommand = new ViewModelCommands(p => ExecuteRecoverPassCommand("", ""));
-            LogoutCommand = new ViewModelCommands(ExecuteLogoutCommand);
+            LogoutCommand = new ViewModelCommands(ExecuteLogoutCommand);//TOOO DOOOO да се премести в MainView
 
         }
+
+
+        /*
+        Методът "CanExecuteLogInCommand" проверява дали са изпълнени условията за изпълнимост на командата за влизане в системата.
+        Връща "true", ако потребителското име (Username) и паролата (Password) отговарят на условията за валидни данни.
+        В противен случай, връща "false".
+        */
 
         private bool CanExecuteLogInCommand(object obj) 
         {
@@ -117,11 +147,18 @@ namespace BLANKMenu.ViewModels
             return validData;
         }
 
-        private void ExecuteLogoutCommand(object obj)
+        private void ExecuteLogoutCommand(object obj) //TOOO DOOOO да се премести в MainView
         {
             Logout();
         }
 
+
+        /*
+        Методът "ExecuteLoginCommand" се извиква при изпълнение на командата за влизане в системата.
+        Той проверява валидността на потребителското име и парола чрез "userRepository.AuthenticateUser".
+        Ако данните са валидни, задава текущия потребител със съответен "GenericPrincipal" и скрива изгледа.
+        В противен случай, задава съобщение за невалидни данни.
+        */
 
         private void ExecuteLoginCommand(object obj) 
         {
@@ -137,12 +174,9 @@ namespace BLANKMenu.ViewModels
                 ErrorMessage = "* Invalid username or password";
             }
         }
-        private void Logout()
+        private void Logout() //TOOO DOOOO да се премести в MainView  и да се създаде работеща логика
         {
-            // Нулиране на състоянието или изход от профила, ако е приложимо.
-            // Например, изчистване на потребителските данни, нулиране на флаговете и други необходими действия.
-
-            // След това, покажете отново екрана за вход или началния изглед.
+           
             IsLoggedIn = false;
             IsViewVisible = true;
 

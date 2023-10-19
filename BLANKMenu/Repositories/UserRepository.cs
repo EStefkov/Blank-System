@@ -18,7 +18,14 @@ namespace BLANKMenu.Repositories
             throw new NotImplementedException();
         }
 
-        public bool AuthenticateUser(NetworkCredential credential)
+
+        /*
+        Методът "AuthenticateUser" се използва за идентификация на потребител чрез предоставени потребителско име и парола.
+        Той установява свързаност с база данни, използвайки "GetConnection," и изпраща SQL заявка за проверка на потребителско име и парола.
+        Ако съответните данни съществуват в базата данни, методът връща "true," указвайки, че потребителят е валиден; в противен случай, връща "false."
+        */
+
+        public bool AuthenticateUser(NetworkCredential credential) // NetworkCredential credential се използва за предаване на потребителско име и парола към метода AuthenticateUser.
         {
             bool validUser;
             using (var connection = GetConnection())
@@ -26,7 +33,7 @@ namespace BLANKMenu.Repositories
             {
             connection.Open(); 
                 command.Connection = connection;
-                command.CommandText = "select *from [User] where username=@username and [password]=@password";
+                command.CommandText = "select *from [Userrr] where username=@username and [password]=@password";
                 command.Parameters.Add("@username", SqlDbType.NVarChar).Value = credential.UserName;
                 command.Parameters.Add("@password", SqlDbType.NVarChar).Value = credential.Password;
                 validUser = command.ExecuteScalar() == null ? false : true;
@@ -49,6 +56,12 @@ namespace BLANKMenu.Repositories
             throw new NotImplementedException();
         }
 
+        /*
+        Методът "GetByUsername" извлича потребител от базата данни, като търси запис със съответно потребителско име.
+        Този метод установява връзка с базата данни, използвайки "GetConnection," и изпраща SQL заявка за извличане на потребител.
+        Ако намери съответния запис, създава модел на потребител и го връща; в противен случай, връща "null."
+        */
+
         public UserModel GetByUsername(string username)
         {
             UserModel user=null;
@@ -57,7 +70,7 @@ namespace BLANKMenu.Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "select *from [User] where username=@username";
+                command.CommandText = "select *from [Userrr] where username=@username";
                 command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
                 using (var reader = command.ExecuteReader()) 
                 { 

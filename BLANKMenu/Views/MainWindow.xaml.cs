@@ -26,7 +26,7 @@ namespace BLANKMenu.Views
         }
 
 
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_Click(object sender, RoutedEventArgs e)//TOO DOO 
         {
             LoginWindow loginWindow = new LoginWindow();
            LoginViewModel s = new LoginViewModel();

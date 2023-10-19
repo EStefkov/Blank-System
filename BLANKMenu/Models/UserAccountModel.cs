@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BLANKMenu.Models
 {
+
+    /*
+  Класът "UserAccountModel" представлява модел на потребителския акаунт и съдържа информация, свързана с потребителския интерфейс.
+    */
    public class UserAccountModel
     {
         public string Uername { get; set; }

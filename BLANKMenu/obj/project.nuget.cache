@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4HVovxVtChVoBH7YSZHCMALXI5n2QaakpSNmYgAvfciSlUqNCqkrzxGcFO1AxHnbOZond2RWeJIE6ElB1QttoA==",
+  "dgSpecHash": "u146WCw401b/QzQ5tpGioDZ1w9Mo8w7UgHepCjwtA6mdzyDKFe+MTzuS996yY4cfDAYrdIPZHVczxmYgLsq8JA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\djd3e\\Documents\\GitHub\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
+  "projectFilePath": "D:\\OpenGlMFC\\BLANKMenu\\Blank-System\\BLANKMenu\\BLANKMenu.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\djd3e\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
     "C:\\Users\\djd3e\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
