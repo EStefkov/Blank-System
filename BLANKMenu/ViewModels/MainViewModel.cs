@@ -10,6 +10,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using BLANKMenu.Models;
 using BLANKMenu.Repositories;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BLANKMenu.ViewModels
 {
@@ -22,6 +24,8 @@ namespace BLANKMenu.ViewModels
 
         private UserAccountModel _currentUserAccount;
         private IUserRepository userRepository;
+
+        public ICommand LogoutCommand { get; }
         public ICommand NewTableButton { get; }
 
         /*
@@ -42,6 +46,37 @@ namespace BLANKMenu.ViewModels
             }
         }
 
+
+        private int row;
+        public int Row
+        {
+            get { return row; }
+            set
+            {
+                if (row != value)
+                {
+                    row = value;
+                    OnPropertyChanged(nameof(Row));
+                }
+            }
+        }
+
+        private int column;
+        public int Column
+        {
+            get { return column; }
+            set
+            {
+                if (column != value)
+                {
+                    column = value;
+                    OnPropertyChanged(nameof(Column));
+                }
+            }
+        }
+
+
+
         /*
         Конструкторът "MainViewModel" се използва за инициализация на ViewModel. Той създава екземпляр на "userRepository" от клас "UserRepository",
         инициализира "CurrentUserAccount" с празен потребителски акаунт.
@@ -52,13 +87,14 @@ namespace BLANKMenu.ViewModels
             userRepository=new UserRepository();
             CurrentUserAccount = new UserAccountModel();
             NewTableButton = new ViewModelCommands(NewTableButtonn);
+            LogoutCommand = new ViewModelCommands(ExecuteLogoutCommand);
             LoadCurrentUserData();
+           
         }
 
    
         private void NewTableButtonn(object sender)
         {
-            throw new NotImplementedException();
 
         }
 
@@ -82,6 +118,17 @@ namespace BLANKMenu.ViewModels
             {
                 CurrentUserAccount.DisplayName="Invalid user, not logged in";
                // Application.Current.Shutdown();
+            }
+        }
+
+        private void ExecuteLogoutCommand(object obj)
+        {
+            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+            if (user != null)
+            {
+                CurrentUserAccount.Uername = string.Empty;
+                CurrentUserAccount.DisplayName = string.Empty;
+                CurrentUserAccount.ProfilePicture = null;
             }
         }
     }

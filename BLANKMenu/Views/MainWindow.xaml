@@ -17,6 +17,8 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
+    
+    
 
     <Border CornerRadius="50"
             Opacity="0.98"
@@ -48,13 +50,31 @@
             </Grid.RowDefinitions>
 
             <Image Source="/images/logo.png" Grid.Row="0" Height="100" HorizontalAlignment="Left"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-            <RadioButton  Style="{StaticResource menuButton}" Grid.Row="1" Tag="{StaticResource color1}"  Command="{Binding NewTableButton}" >
-                <StackPanel Orientation="Vertical">
-                    <fa:IconImage Icon="PlusCircle" Style="{StaticResource menuButtonIcon}" />
-                    <TextBlock Text="New Table" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                </StackPanel>
-            </RadioButton>
+                <RadioButton Grid.Row="{Binding Row}" Grid.Column="{Binding Column}" VerticalAlignment="Top" Style="{StaticResource menuButton}" Tag="{StaticResource color1}"   Click="RadioButton_Click_1" Command="{Binding NewTableButton}">
+                    <StackPanel Orientation="Vertical">
+                        <fa:IconImage Icon="PlusCircle" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="New Table" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                     </StackPanel>
+                </RadioButton>
+                
+            
+                
+            </Grid>
 
             <RadioButton x:Name="newTableButton" Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0" Click="RadioButton_Click" 
                          Command="{Binding LogoutCommand}">
@@ -118,5 +138,6 @@
 
 
     </Border>
+    
 
 </Window>

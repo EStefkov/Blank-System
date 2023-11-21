@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\App.xaml
-5-137912179
+6-9385787
 
-142093280441
+16-873579403
 205-507459109
-CustomControls\BindablePasswordBox.xaml;Styles\ButtonStyles.xaml;Styles\UIColors.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
+CustomControls\BindablePasswordBox.xaml;Styles\ButtonStyles.xaml;Styles\UIColors.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\TableWindow.xaml;
 
 False
 

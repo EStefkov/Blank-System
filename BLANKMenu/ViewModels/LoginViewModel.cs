@@ -106,7 +106,7 @@ namespace BLANKMenu.ViewModels
         public ICommand RecoverPasswordCommand { get; }
         public ICommand ShowPasswordCommand { get; }
         public ICommand RememberPasswordCommand { get; }
-        public ICommand LogoutCommand { get; } //TOOO DOOOO да се премести в MainView
+      
         //Конструктор 
         /*
         Конструкторът "LoginViewModel" се използва за инициализация на ViewModel за влизане в системата.
@@ -121,7 +121,7 @@ namespace BLANKMenu.ViewModels
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommands(ExecuteLoginCommand, CanExecuteLogInCommand);
             RecoverPasswordCommand = new ViewModelCommands(p => ExecuteRecoverPassCommand("", ""));
-            LogoutCommand = new ViewModelCommands(ExecuteLogoutCommand);//TOOO DOOOO да се премести в MainView
+           
 
         }
 
@@ -147,10 +147,7 @@ namespace BLANKMenu.ViewModels
             return validData;
         }
 
-        private void ExecuteLogoutCommand(object obj) //TOOO DOOOO да се премести в MainView
-        {
-            Logout();
-        }
+       
 
 
         /*

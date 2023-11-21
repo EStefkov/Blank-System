@@ -51,7 +51,7 @@ namespace BLANKMenu
         }
         private void btnClose_Click(Object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

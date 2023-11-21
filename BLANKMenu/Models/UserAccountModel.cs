@@ -12,6 +12,11 @@ namespace BLANKMenu.Models
     */
    public class UserAccountModel
     {
+        public UserAccountModel() {
+            Uername = string.Empty;
+            DisplayName = string.Empty;
+            ProfilePicture = null;
+        }
         public string Uername { get; set; }
         public string DisplayName { get; set; }
         public byte[] ProfilePicture { get; set; }

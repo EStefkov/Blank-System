@@ -10,6 +10,7 @@ namespace BLANKMenu.ViewModels
     public abstract class ViewModelsBase : INotifyPropertyChanged
     {
 
+       
         /*Събитието PropertyChanged:
          *Това е събитие (event), което се дефинира в интерфейса INotifyPropertyChanged. Този интерфейс се използва обикновено в MVVM,
          *за да се уведоми изгледите за промени в ViewModel или модела.
@@ -25,5 +26,6 @@ namespace BLANKMenu.ViewModels
         { 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+  
     }
 }

@@ -92,3 +92,5 @@ D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\bin\Debug\net6.0-windows\FontAweso
 D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Styles\ButtonStyles.baml
 D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Styles\UIColors.baml
 D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\App.baml
+D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Views\TableWindow.g.cs
+D:\OpenGlMFC\BLANKMenu\Blank-System\BLANKMenu\obj\Debug\net6.0-windows\Views\TableWindow.baml

@@ -27,7 +27,7 @@ namespace BLANKMenu.Repositories
 
         public bool AuthenticateUser(NetworkCredential credential) // NetworkCredential credential се използва за предаване на потребителско име и парола към метода AuthenticateUser.
         {
-            bool validUser;
+            bool validUser= true;
             using (var connection = GetConnection())
             using (var command = new SqlCommand()) 
             {
