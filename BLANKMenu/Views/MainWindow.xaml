@@ -13,6 +13,12 @@
         Background="Transparent"
         AllowsTransparency="True">
 
+
+    <Window.Resources>
+        <!-- Създаване на инстанция на TablesViewModel -->
+        <viewModel:TablesViewModel x:Key="tablesViewModel"/>
+    </Window.Resources>
+    
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -51,33 +57,33 @@
 
             <Image Source="/images/logo.png" Grid.Row="0" Height="100" HorizontalAlignment="Left"/>
             <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <!-- ot tuka postavqm-->
 
-                <RadioButton Grid.Row="{Binding Row}" Grid.Column="{Binding Column}" VerticalAlignment="Top" Style="{StaticResource menuButton}" Tag="{StaticResource color1}"   Click="RadioButton_Click_1" Command="{Binding NewTableButton}">
-                    <StackPanel Orientation="Vertical">
-                        <fa:IconImage Icon="PlusCircle" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="New Table" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                     </StackPanel>
-                </RadioButton>
-                
-            
-                
+                <!-- tuka beshe butona-->
+                <ListView DataContext="{StaticResource tablesViewModel}" ItemsSource="{Binding Tables}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Table Number" DisplayMemberBinding="{Binding TableNumber}" />
+                            <GridViewColumn Header="Seats" DisplayMemberBinding="{Binding NumberOfSeats}" />
+                            <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" />
+                            <!-- Добавете други колони според нуждите -->
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <!-- <Button Content="Update Table Status" Command="{Binding UpdateTableStatusCommand}" CommandParameter="Някакъв параметър"/>    -->
             </Grid>
 
             <RadioButton x:Name="newTableButton" Style="{StaticResource menuButton}" HorizontalAlignment="Right" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0" Click="RadioButton_Click" 
                          Command="{Binding LogoutCommand}">
+                <StackPanel Orientation="Vertical">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource menuButtonIcon}" />
+                    <TextBlock Text="EXIT" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center"  Margin="0,5,0,0"/>
+                </StackPanel>
+            </RadioButton>
+
+            <RadioButton x:Name="addTable" Style="{StaticResource menuButton}" HorizontalAlignment="Left" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0"  
+             Command="{Binding AddTableCommand}">
                 <StackPanel Orientation="Vertical">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource menuButtonIcon}" />
                     <TextBlock Text="EXIT" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center"  Margin="0,5,0,0"/>

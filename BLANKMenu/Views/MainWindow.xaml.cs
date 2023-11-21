@@ -23,18 +23,20 @@ namespace BLANKMenu.Views
 
         public MainWindow()
         {
+
             InitializeComponent();
+
         }
 
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)//TOO DOO 
         {
-            LoginWindow loginWindow = new LoginWindow();
             this.Close();
-
             System.Windows.Forms.Application.Restart();
         
         }
+
+
         /*
          
 
