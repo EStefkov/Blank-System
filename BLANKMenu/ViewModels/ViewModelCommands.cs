@@ -40,19 +40,14 @@ namespace BLANKMenu.ViewModels
             add { CommandManager.RequerySuggested  += value; }
             remove { CommandManager.RequerySuggested  -= value; }
         }
-        /*
-            Методът "CanExecute" проверява изпълнимостта на командата, използвайки предварително зададена проверка или връща "true", ако няма проверка.
-        */
+
 
         public bool CanExecute(object parameter) 
         {
             return _canExecuteAction == null ? true : _canExecuteAction(parameter);
         }
 
-        /*
-          Методът "Execute" изпълнява командата, предавайки параметъра на съответното действие (Action).
-        */
-
+      
         public void Execute(object parameter) 
         {
             _executeAction(parameter);

@@ -6,6 +6,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:local="clr-namespace:BLANKMenu.Views"
         xmlns:viewModel="clr-namespace:BLANKMenu.ViewModels"
+   
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         WindowStyle="None"
@@ -60,6 +61,7 @@
                 <!-- ot tuka postavqm-->
 
                 <!-- tuka beshe butona-->
+                
                 <ListView DataContext="{StaticResource tablesViewModel}" ItemsSource="{Binding Tables}">
                     <ListView.View>
                         <GridView>
@@ -82,13 +84,18 @@
                 </StackPanel>
             </RadioButton>
 
-            <RadioButton x:Name="addTable" Style="{StaticResource menuButton}" HorizontalAlignment="Left" Grid.Row="2" Tag="{StaticResource color1}" Margin="0,0,10,0"  
-             Command="{Binding AddTableCommand}">
-                <StackPanel Orientation="Vertical">
-                    <fa:IconImage Icon="Xmark" Style="{StaticResource menuButtonIcon}" />
-                    <TextBlock Text="EXIT" Style="{StaticResource menuButtonText}" HorizontalAlignment="Center"  Margin="0,5,0,0"/>
-                </StackPanel>
-            </RadioButton>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                <!-- Текстово поле за номер на масата -->
+                <TextBox x:Name="TableNumberTextBox" ToolTip="Въведете номер на масата" />
+
+                <!-- Текстово поле за брой места -->
+                <TextBox x:Name="NumberOfSeatsTextBox" ToolTip="Въведете брой места" />
+
+                <!-- Бутон за потвърждение Click="AddButton_Click"  Command="{Binding AddTableCommand}" -->
+                <Button Content="Потвърди" Command="{Binding AddTableCommand}"/>
+            </StackPanel>
+
+            
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>

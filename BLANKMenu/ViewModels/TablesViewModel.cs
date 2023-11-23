@@ -15,12 +15,16 @@ namespace BLANKMenu.ViewModels
     public class TablesViewModel : INotifyPropertyChanged
     {
 
-        private ObservableCollection<TableModel> _tables;
+        public ObservableCollection<TableModel> _tables;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand AddTableCommand { get; private set; }
 
+        protected void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         // Колекция от масите
         public ObservableCollection<TableModel> Tables
         {
@@ -38,38 +42,49 @@ namespace BLANKMenu.ViewModels
         // Конструктор
         public TablesViewModel()
         {
-            AddTableCommand = new RelayCommand(AddTableAndOpenWindow);
-            // Инициализиране на колекцията с примерни данни
-            _tables = new ObservableCollection<TableModel>
-    {
-        new TableModel { TableNumber = 1, NumberOfSeats = 4, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
-        // Добавете други маси според нуждите
-    };
+            /*
+                       _tables = new ObservableCollection<TableModel>();
+                       AddTableCommand = new RelayCommand(AddTable);
+            */
+
+                     AddTableCommand = new RelayCommand(AddTableAndOpenWindow);
+                       // Инициализиране на колекцията с примерни данни
+                       _tables = new ObservableCollection<TableModel>
+               {
+                   new TableModel { TableNumber = 1, NumberOfSeats = 4, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   new TableModel { TableNumber = 2, NumberOfSeats = 2, Status = "Свободна" },
+                   // Добавете други маси според нуждите
+                       };
+                   //  AddTableCommand = new RelayCommand(AddTable);
+
         }
 
-        private void AddTableAndOpenWindow()
+        public void AddTableAndOpenWindow()
         {
             // Добавяне на нова маса
-           // AddTable(new TableModel { TableNumber = [NewNm], NumberOfSeats = [БройМеста], Status = "Свободна" });
+            //AddTable(new TableModel { TableNumber = [NewNm], NumberOfSeats = [БройМеста], Status = "Свободна" });
 
             // Отваряне на TableWindow
-            TableWindow tableWindow = new TableWindow();
-            tableWindow.Show();
+         /*   TableWindow tableWindow = new TableWindow();
+            tableWindow.Show();*/
+
+            var tableWindow = new TableWindow();
+            var result = tableWindow.ShowDialog();
+            if (result == true && tableWindow.NewTable != null)
+            {
+                _tables.Add(tableWindow.NewTable);
+            }
         }
 
         // Метод за уведомяване при промяна на свойство
-        protected void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+     
 
         // Методи за управление на масите (пример: промяна на статуса)
         public void UpdateTableStatus(int tableNumber, string newStatus)
@@ -81,9 +96,27 @@ namespace BLANKMenu.ViewModels
             }
         }
 
-        public void AddTable(TableModel table)
+        public void AddTable(int tableNumber, int numberOfSeats)
         {
-            _tables.Add(table);
+
+            var newTable = new TableModel
+            {
+                TableNumber = tableNumber,
+                NumberOfSeats = numberOfSeats,
+                Status = "Свободна" // или друг подходящ статус
+            };
+
+            // Добавяне на новата маса в колекцията
+            _tables.Add(newTable);
+
+
+            /*
+              var tableWindow = new TableWindow();
+              var result = tableWindow.ShowDialog();
+              if (result == true)
+              {
+                  _tables.Add(tableWindow.NewTable); // Предполагаме, че tableWindow.NewTable връща TableModel
+              }*/
         }
 
         public void RemoveTable(int tableNumber)

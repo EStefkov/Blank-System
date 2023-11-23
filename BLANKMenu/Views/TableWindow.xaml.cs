@@ -1,4 +1,5 @@
-﻿using BLANKMenu.ViewModels;
+﻿using BLANKMenu.Models;
+using BLANKMenu.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,16 @@ namespace BLANKMenu.Views
     public partial class TableWindow : Window
     {
 
+       
+
         public TableWindow()
         {
             InitializeComponent();
         }
+
+        public TableModel NewTable { get; private set; }
+
+       
 
         private void newTableButton_Click(object sender, RoutedEventArgs e)
         {
@@ -43,5 +50,6 @@ namespace BLANKMenu.Views
             main.Show();
 
         }
+
     }
 }

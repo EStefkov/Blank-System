@@ -1,4 +1,5 @@
-﻿using BLANKMenu.ViewModels;
+﻿using BLANKMenu.Models;
+using BLANKMenu.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,40 +32,82 @@ namespace BLANKMenu.Views
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)//TOO DOO 
         {
-            this.Close();
+            
             System.Windows.Forms.Application.Restart();
-        
+            this.Close();
+
+        }
+
+        public TableModel NewTable { get; private set; }
+
+        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            int tableNumber;
+            int numberOfSeats;
+
+            // Опит за преобразуване на въведените данни в числа
+            bool isTableNumberValid = int.TryParse(TableNumberTextBox.Text, out tableNumber);
+            bool isNumberOfSeatsValid = int.TryParse(NumberOfSeatsTextBox.Text, out numberOfSeats);
+
+            if (isTableNumberValid && isNumberOfSeatsValid)
+            {
+                // Създаване на нова маса с въведените данни
+                NewTable = new TableModel
+                {
+                    TableNumber = tableNumber,
+                    NumberOfSeats = numberOfSeats,
+                    Status = "Свободна"
+                };
+            
+              //  this.Close ();
+                TableWindow tableWindow = new TableWindow();
+                tableWindow.Show();
+            }
+            else
+            {
+                // Покажете съобщение за грешка, ако въведените данни не са валидни
+                MessageBox.Show("Моля, въведете валиден номер на масата и брой места.");
+            }
+        }
+        private void ConfirmButton_Click1(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is TablesViewModel viewModel)
+            {
+                if (int.TryParse(TableNumberTextBox.Text, out int tableNumber) &&
+                    int.TryParse(NumberOfSeatsTextBox.Text, out int numberOfSeats))
+                {
+                    viewModel.AddTable(tableNumber, numberOfSeats);
+                }
+                else
+                {
+                    MessageBox.Show("Моля, въведете валидни стойности за номер на масата и брой места.");
+                }
+            }
         }
 
 
-        /*
-         
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(TableNumberTextBox.Text, out int tableNumber) &&
+                int.TryParse(NumberOfSeatsTextBox.Text, out int numberOfSeats))
+            {
+                NewTable = new TableModel
+                {
+                    TableNumber = tableNumber,
+                    NumberOfSeats = numberOfSeats,
+                    Status = "Свободна"
+                };
+                
+               // this.DialogResult = true;
+               // this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Моля, въведете валидни стойности.");
+            }
+        }
 
-private void RadioButton_Click_1(object sender, RoutedEventArgs e)
-{
-    RadioButton radioButton = sender as RadioButton;
 
-    // Променете стойностите на Grid.Row и Grid.Column според текущия ред и колона
-    Grid.SetRow(radioButton, currentRow);
-    Grid.SetColumn(radioButton, currentColumn);
-
-    // Увеличете текущия ред и колона
-    currentColumn++; // Преместване на следващата колона
-    if (currentColumn == 5)
-    {
-        currentColumn = 0; // Върнете се към първата колона, ако сте стигнали до края на реда
-        currentRow++; // Преместване на следващия ред
-    }
-
-    // Ако сте стигнали до края на всички редове и колони, можете да извършите определени действия, например рестартиране на текущите стойности или известие до потребителя.
-
-    // Отново покажете текущия прозорец
-    this.Close();
-    TableWindow tableWindow = new TableWindow();
-    tableWindow.Show();
-}
-         
-         */
         private int currentRow = 0;
         private int currentColumn = 0;
         private void RadioButton_Click_1(object sender, RoutedEventArgs e)

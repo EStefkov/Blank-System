@@ -25,7 +25,7 @@ namespace BLANKMenu.ViewModels
         private UserAccountModel _currentUserAccount;
         private IUserRepository userRepository;
 
-        public ICommand LogoutCommand { get; }
+      
         public ICommand NewTableButton { get; }
 
         /*
@@ -87,7 +87,6 @@ namespace BLANKMenu.ViewModels
             userRepository=new UserRepository();
             CurrentUserAccount = new UserAccountModel();
             NewTableButton = new ViewModelCommands(NewTableButtonn);
-            LogoutCommand = new ViewModelCommands(ExecuteLogoutCommand);
             LoadCurrentUserData();
            
         }
@@ -121,15 +120,6 @@ namespace BLANKMenu.ViewModels
             }
         }
 
-        private void ExecuteLogoutCommand(object obj)
-        {
-            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-            if (user != null)
-            {
-                CurrentUserAccount.Uername = string.Empty;
-                CurrentUserAccount.DisplayName = string.Empty;
-                CurrentUserAccount.ProfilePicture = null;
-            }
-        }
+      
     }
 }
